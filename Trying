@@ -291,7 +291,7 @@ MovementSection:NewKeybind("Flight", "Flight", Enum.KeyCode.R, function()--sprin
     game.Workspace.Gravity = 192.6
 end)
 
-MovementSection:NewButton("skywars midTp", "skywars midTp",Enum.KeyCode.G, function()
+MovementSection:NewKeyblind("skywars midTp", "skywars midTp",Enum.KeyCode.G, function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
                         wait(0.11)
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
