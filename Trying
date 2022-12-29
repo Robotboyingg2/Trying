@@ -285,6 +285,15 @@ MovementSection:NewToggle("AcSpeed2", "HeatSeeker lol", function(state)--springs
     end
 end)
 
+MovementSection:NewButton("inf jump", "inf jump", function()
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
+
 MovementSection:NewKeybind("Flight", "Flight", Enum.KeyCode.R, function()--springs even though its gravity lmao
 	game.Workspace.Gravity = 0
     wait(2.4)
