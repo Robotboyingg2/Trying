@@ -798,8 +798,8 @@ ScriptsSection:NewButton("Keyboard", "ButtonInfo", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
 
-ScriptsSection:NewButton("notify", "telling me if there vape user", function()
-for i,plr in pairs(game:GetService("Players"):GetChildren()) do
+ScriptsSection:NewButton("ButtonText", "ButtonInfo", function()
+    for i,plr in pairs(game:GetService("Players"):GetChildren()) do
         local playertype = bedwars["CheckPlayerType"](plr)
                 if playertype == "VAPE PRIVATE" then
                     if plr.Name ~= lplr.Name then
