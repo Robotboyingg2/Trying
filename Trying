@@ -291,6 +291,18 @@ MovementSection:NewKeybind("Flight", "Flight", Enum.KeyCode.R, function()--sprin
     game.Workspace.Gravity = 192.6
 end)
 
+MovementSection:NewButton("skywars midTp", "skywars midTp",Enum.KeyCode.G, function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
+                        wait(0.11)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
+                        wait(0.11)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
+                        wait(0.11)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
+                        wait(0.1)
+end)
+
+
 MovementSection:NewKeybind("Longjump", "Longjump", Enum.KeyCode.J, function()--springs
 	lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
     wait(0.48)
