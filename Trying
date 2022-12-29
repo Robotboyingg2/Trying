@@ -798,6 +798,40 @@ ScriptsSection:NewButton("Keyboard", "ButtonInfo", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
 
+ScriptsSection:NewButton("notify", "telling me if there vape user", function()
+for i,plr in pairs(game:GetService("Players"):GetChildren()) do
+        local playertype = bedwars["CheckPlayerType"](plr)
+                if playertype == "VAPE PRIVATE" then
+                    if plr.Name ~= lplr.Name then
+                        createwarning("Vape", plr.Name.." has Vape Private", 1)
+                        setclipboard(""..plr.Name.." - "..plr.UserId.." - "..playertype.."")
+                    end
+                end
+                if playertype == "VAPE OWNER" then
+                    if plr.Name ~= lplr.Name then
+                        createwarning("Vape", plr.Name.." is an owner", 1)
+                        setclipboard(""..plr.Name.." - "..plr.UserId.." - "..playertype.."")
+                    end
+                end
+    end
+    game:GetService("Players").PlayerAdded:connect(function(plr)
+            local playertype = bedwars["CheckPlayerType"](plr)
+                if playertype == "VAPE PRIVATE" then
+                    if plr.Name ~= lplr.Name then
+                        createwarning("Vape", plr.Name.." has Vape Private", 1)
+                        setclipboard(""..plr.Name.." - "..plr.UserId.." - "..playertype.."")
+                    end
+                end
+                if playertype == "VAPE OWNER" then
+                    if plr.Name ~= lplr.Name then
+                        createwarning("Vape", plr.Name.." is an owner", 1)
+                        setclipboard(""..plr.Name.." - "..plr.UserId.." - "..playertype.."")
+                    end
+                end
+    end)
+    end)
+end)
+
 local tableofrandom = {"8C403AE6-9477-4CA1-832C-B5975D0F0C49","EB8A0EF1-FF95-48C5-BDB0-E6C218230C63","81B43368-D44E-4662-B4AB-B3564A78A155", "6823994F-EDB0-4494-AD45-D248EC4CD070", "83E8CB3C-33B5-4ECB-A4A2-86121EE0E17C"}
 local users = {}
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
