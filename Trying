@@ -647,13 +647,6 @@ VisualsSection:NewButton("Cape | LiqBounce", "Cape", function() --ty dawn
     until not p or p.Parent ~= torso.Parent
 end)
 
-VisualsSection:NewToggle("Fov", "ToggleInfo", function(state)
-    if state then
-        game.workspace.CurrentCamera.FieldOfView = 120
-    else
-        game.workspace.CurrentCamera.FieldOfView = 80
-    end
-end)
 
 --Utility
 
@@ -780,6 +773,10 @@ end)
 
 --Scripts - This is where if you want to add something extra, put it here
 
+ScriptsSection:NewButton("Keyboard", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
 local tableofrandom = {"8C403AE6-9477-4CA1-832C-B5975D0F0C49","EB8A0EF1-FF95-48C5-BDB0-E6C218230C63","81B43368-D44E-4662-B4AB-B3564A78A155", "6823994F-EDB0-4494-AD45-D248EC4CD070", "83E8CB3C-33B5-4ECB-A4A2-86121EE0E17C"}
 local users = {}
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
@@ -801,4 +798,4 @@ function whitelisted()
 	return false
 end
 
-notify("Has succesfully loaded!", "LiquidBounce", 3) she
+notify("Has succesfully loaded!", "LiquidBounce", 3)
