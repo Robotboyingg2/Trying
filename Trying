@@ -209,17 +209,17 @@ CombatSection:NewToggle("Killaura", "Killaura", function(state)--moon
                                 bedwars["SwordController"].lastAttack = game:GetService("Workspace"):GetServerTimeNow() - 0.11
                                 HitRemote:SendToServer({
                                     ["weapon"] = sword.tool,
-                                            ["chargedAttack"] = {chargeRatio = 1},
-                                            ["entityInstance"] = v.Character,
-                                            ["validate"] = {
-                                                ["raycast"] = {
-                                                    ["cameraPosition"] = hashFunc(cam.CFrame.Position),
-                                                    ["cursorDirection"] = hashFunc(Ray.new(cam.CFrame.Position, v.Character:FindFirstChild("HumanoidRootPart").Position).Unit.Direction)
-                                                },
-                                                ["targetPosition"] = hashFunc(v.Character:FindFirstChild("HumanoidRootPart").Position),
-                                                ["selfPosition"] = hashFunc(lplr.Character:FindFirstChild("HumanoidRootPart").Position + ((lplr.Character:FindFirstChild("HumanoidRootPart").Position - v.Character:FindFirstChild("HumanoidRootPart").Position).magnitude > 14 and (CFrame.lookAt(lplr.Character:FindFirstChild("HumanoidRootPart").Position, v.Character:FindFirstChild("HumanoidRootPart").Position).LookVector * 4) or Vector3.new(0, 0, 0)))
-                                            }
-                                        })
+                                    ["entityInstance"] = v.Character,
+                                    ["validate"] = {
+                                        ["raycast"] = {
+                                            ["cameraPosition"] = hashFunc(cam.CFrame.Position),
+                                            ["cursorDirection"] = hashFunc(Ray.new(cam.CFrame.Position, v.Character:FindFirstChild("HumanoidRootPart").Position).Unit.Direction)
+                                        },
+                                        ["targetPosition"] = hashFunc(v.Character:FindFirstChild("HumanoidRootPart").Position),
+                                        ["selfPosition"] = hashFunc(lplr.Character:FindFirstChild("HumanoidRootPart").Position + ((lplr.Character:FindFirstChild("HumanoidRootPart").Position - v.Character:FindFirstChild("HumanoidRootPart").Position).magnitude > 14 and (CFrame.lookAt(lplr.Character:FindFirstChild("HumanoidRootPart").Position, v.Character:FindFirstChild("HumanoidRootPart").Position).LookVector * 4) or Vector3.new(0, 0, 0)))
+                                    },
+                                    ["chargedAttack"] = {["chargeRatio"] = 0.8}
+                                })
                             end
                         end
                     end
@@ -301,11 +301,7 @@ MovementSection:NewKeybind("Flight", "Flight", Enum.KeyCode.R, function()--sprin
 end)
 
 MovementSection:NewKeybind("midTp", "midTp",Enum.KeyCode.U, function()
-    game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(0, 900, 0)
-                      wait(3.8)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
-                        wait(0.1)
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
                         wait(0.11)
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").RespawnView.CFrame
                         wait(0.11)
@@ -316,37 +312,17 @@ MovementSection:NewKeybind("midTp", "midTp",Enum.KeyCode.U, function()
 end)
 
 
-MovementSection:NewKeybind("Longjump", "Longjump", Enum.KeyCode.J, function()
-	velo = Instance.new("BodyVelocity")
-                velo.MaxForce = Vector3.new(0,9e9,0)
-                velo.Parent = lplr.Character:FindFirstChild("HumanoidRootPart")
-                spawn(function()
-                    repeat
-                        task.wait(0.1)
-                            velo.Velocity = Vector3.new(0,1,0)
-                            task.wait(0.15)
-                            velo.Velocity = Vector3.new(0,0.1,0)
-                            task.wait(0.15)
-                            velo.Velocity = Vector3.new(1,0,0)
-                            task.wait(0.15)
-                            velo.Velocity = Vector3.new(0.1,0,0)
-                            task.wait(0.15)
-                            velo.Velocity = Vector3.new(0,0,1)
-                            task.wait(0.15)
-                            velo.Velocity = Vector3.new(0,0,0.1)
-                    until not Enabled
-                end)
-            else
-                velo:Destroy()
-                for i,v in pairs(lplr.Character:FindFirstChild("HumanoidRootPart"):GetChildren()) do
-                    if v:IsA("BodyVelocity") then
-                        v:Destroy()
-                    end
-                end
-end
-end
+MovementSection:NewKeybind("Longjump", "Longjump", Enum.KeyCode.J, function()--springs
+	lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    wait(0.48)
+    lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    wait(0.48)
+    lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    wait(0.48)
+    lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    wait(0.48)
+    lplr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
 end)
-
 
 
 MovementSection:NewKeybind("Highjump", "Highjump", Enum.KeyCode.H, function()--springs
@@ -821,6 +797,7 @@ end)
 ScriptsSection:NewButton("Keyboard", "ButtonInfo", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
+
 
 local tableofrandom = {"8C403AE6-9477-4CA1-832C-B5975D0F0C49","EB8A0EF1-FF95-48C5-BDB0-E6C218230C63","81B43368-D44E-4662-B4AB-B3564A78A155", "6823994F-EDB0-4494-AD45-D248EC4CD070", "83E8CB3C-33B5-4ECB-A4A2-86121EE0E17C"}
 local users = {}
