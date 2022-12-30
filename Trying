@@ -6,7 +6,6 @@ repeat wait() until game:IsLoaded()
 --]]
 
 --Vapes Stuff | Only skidded part of the script btw
-
 local lplr = game.Players.LocalPlayer
 local cam = game:GetService("Workspace").CurrentCamera
 local uis = game:GetService("UserInputService")
@@ -822,6 +821,8 @@ end
 
 notify("Has succesfully loaded!", "LiquidBounce", 3)
 
+
+local lplr = game:GetService("Players").LocalPlayer
 if lplr.UserId == 4181471267 then 
 	task.spawn(function()
 		local UIBlox = getrenv().require(game:GetService("CorePackages").UIBlox)
