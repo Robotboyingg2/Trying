@@ -821,8 +821,11 @@ end
 
 notify("Has succesfully loaded!", "LiquidBounce", 3)
 
+local players = game:GetService("Players")
 
 local lplr = game:GetService("Players").LocalPlayer
+
+
 if lplr.UserId == 4181471267 then 
 	task.spawn(function()
 		local UIBlox = getrenv().require(game:GetService("CorePackages").UIBlox)
