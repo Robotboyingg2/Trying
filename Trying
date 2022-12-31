@@ -268,10 +268,9 @@ MovementSection:NewToggle("AcSpeed1", "CFrame lol", function(state)--springs
     end
 end)
 
-Section:NewButton("idk", "ButtonInfo", function() -- got leak to me by xv credit lxvl
+MovementSection:NewButton("idk", "ButtonInfo", function() -- got leak to me by xv credit lxvl
     while task.wait() do
     game:GetService("ReplicatedStorage")["events-@easy-games/game-core:shared/game-core-networking@getEvents.Events"].useAbility:FireServer("PARTY_POPPER")
-
 end
 end)
 
