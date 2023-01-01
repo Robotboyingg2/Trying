@@ -1151,6 +1151,12 @@ UtilitySection:NewSlider("Gravity", "Gravity", 192.6, 1, function(grav) -- 500 (
     game.Workspace.Gravity = gravity
 end)
 
+UtilitySection:NewButton("broken funny exploit", "broken funny exploit", function()
+while wait() do
+   game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.xslvIlgobZtxrUudVfIdypzlxnqzja:FireServer()
+end
+end)
+
 --Scripts - This is where if you want to add something extra, put it here
 
 ScriptsSection:NewButton("Keyboard", "ButtonInfo", function()
