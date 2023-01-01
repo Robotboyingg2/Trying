@@ -307,13 +307,17 @@ MovementSection:NewKeybind("Flight", "Flight", Enum.KeyCode.R, function()--sprin
     game.Workspace.Gravity = 192.6
 end)
 
-MovementSection:NewKeybind("fly", "fly", Enum.KeyCode.A, function()
+MovementSection:NewToggle("fly", "fly", Enum.KeyCode.A, function(state)
+    if state then
 game:GetService("Workspace").Gravity = 0
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
 wait(0.6)
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 30
 wait(0.1)
-game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20   
+ else game:GetService("Workspace").Gravity = 192
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Normel
+    end
 end)
 
 MovementSection:NewKeybind("midTp", "midTp",Enum.KeyCode.U, function()
