@@ -374,6 +374,19 @@ VisualsSection:NewButton("Chams", "Chams", function()--springs
     end)
 end)
 
+VisualsSection:NewButton("funny exploit", "ButtonInfo", function()
+    local lplr = game:GetService("Players").LocalPlayer
+lplr.Character:FindFirstChild("Nametag",true):Destroy()
+for i, v2 in pairs(lplr.Character:GetDescendants()) do
+    if v2:IsA("Accessory") then
+        local v = v2:FindFirstChild("Handle")
+        if v then
+            v:Remove()
+        end
+    end
+end
+end)
+
 VisualsSection:NewButton("Health | LiqBounce", "Health", function()--springs
     local ScreenGui = Instance.new("ScreenGui")
     local TextLabel = Instance.new("TextLabel")
@@ -1011,6 +1024,8 @@ VisualsSection:NewButton("Minecraft Texturepack", "Minecraft Texturepack", funct
         task.wait(0.000001)
     end
 end)
+
+
 
 --Utility
 
