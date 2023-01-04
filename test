@@ -1,0 +1,21 @@
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+
+local HwidWhitelist = {
+    "3d10cd38-38de-4da4-a4df-bfa276a57210", -- hello
+}
+
+
+if isfile("kavo/scripts/WhiteList.lua") == false then
+    writefile("kavo/scripts/WhiteList.lua", HWID)
+end
+
+
+if table.find(HwidWhitelist, HWID) then
+    print("Found Hwid In List")
+    local Read = readfile("Whitelisted/WhiteList.lua")
+    if table.find(HwidWhitelist, Read) then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Robotboyingg2/Test4/main/Test"))()
+                              else
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/Ln3242/LiquidBounce/main/checkgame.lua', true))()
+    end
+   end
