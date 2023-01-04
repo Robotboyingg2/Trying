@@ -1,1 +1,1 @@
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Ln3242/LiquidBounce/main/checkgame.lua', true))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Robotboyingg2/Trying/main/checkgame.lua', true))()
